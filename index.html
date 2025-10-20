@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de productos electrónicos con búsqueda y filtros">
+    <title>Catálogo de Productos | TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TechStore</h1>
+            <p class="subtitle">Tu tienda de tecnología de confianza</p>
+        </div>
+    </header>
+
+    <nav aria-label="Filtros de productos">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="search-input">
+                        <span class="filter-label">Buscar:</span>
+                        <input 
+                            type="search" 
+                            id="search-input" 
+                            placeholder="Buscar productos..." 
+                            aria-label="Buscar productos por nombre"
+                        >
+                    </label>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="category-filter">
+                        <span class="filter-label">Categoría:</span>
+                        <select id="category-filter" aria-label="Filtrar por categoría">
+                            <option value="all">Todas las categorías</option>
+                            <option value="audio">Audio</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="wearables">Wearables</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section aria-label="Lista de productos">
+                <h2 class="visually-hidden">Productos disponibles</h2>
+                <div id="product-grid" class="product-grid" role="list">
+                </div>
+                <div id="no-results" class="no-results" style="display: none;">
+                    <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-overlay" aria-label="Cerrar modal"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar detalle del producto">&times;</button>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="" width="400" height="400">
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description" class="modal-description"></p>
+                    <p class="modal-price" id="modal-price"></p>
+                    <p class="modal-stock" id="modal-stock"></p>
+                    <p class="modal-category" id="modal-category"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
